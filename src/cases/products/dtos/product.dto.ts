@@ -6,6 +6,11 @@ export interface BrandDTO {
     name: string;
 }
 
+export interface ProductPhotoDTO {
+    id?: string;
+    path: string;
+}
+
 export interface ProductDTO {
     id?: string;
     name: string;
@@ -13,6 +18,7 @@ export interface ProductDTO {
     price: number;
     active: boolean;
     category: CategoryDTO;
-    brand: BrandDTO;
+    brand?: BrandDTO;
+    photos?: ProductPhotoDTO[];
 }
 
