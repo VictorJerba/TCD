@@ -38,9 +38,10 @@ export function CartContextProvider({
 
     useEffect (() => {
         const storedCart = localStorage.getItem('cart');
+        console.log('Entrei 2:', storedCart);
         if (storedCart) {
             try {
-                setCart(JSON.parse(storageCart));
+                setCart(JSON.parse(storedCart));
             } catch  {
                 setCart({ items: [] });
             }

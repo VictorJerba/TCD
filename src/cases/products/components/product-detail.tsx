@@ -1,3 +1,4 @@
+import { useCart } from "@/cases/cart/hooks/use-cart";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ShoppingCart } from "lucide-react";
@@ -5,11 +6,15 @@ import { useState } from "react";
 import { FormattedNumber } from "react-intl";
 import IntlProvider from "react-intl/src/components/provider";
 
+
 type ProductDetailProps = {
   product: ProductDTO;
 };
 
 export function ProductDetail({ product }: ProductDetailProps) {
+
+  const {addProduct} = useCart()
+
   const bucketBaseURL = import.meta.env.VITE_BUCKET_BASE_URL;
   const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
 
@@ -20,7 +25,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
     : `https://placehold.co/300x300?text=Sem+Imagem&font-roboto`;
 
     function handleAddProductCart() {
-
+      addProduct(product)
     }
 
   return (
