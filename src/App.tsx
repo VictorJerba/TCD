@@ -3,6 +3,8 @@ import { ProductListPage } from "./pages/product-list.page"
 import { ProductDetailPage } from "./pages/product-detail.page"
 import { Header } from "./components/ui/layout/header"
 import { CartPage } from "./pages/cart-page"
+import { SignInPage } from "./pages/signin-page"
+import { SignUpPage } from "./pages/signup-page"
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
           <Route path= "/" element={<ProductListPage />} />
             <Route path= "/product/:id" element={<ProductDetailPage />} />
             <Route path= "/cart" element={<CartPage />} />
+            <Route path= "/signin" element={<SignInPage />} />
+            <Route path= "/signup" element={<SignUpPage />} />
           </Routes>
         </div>
       </main>
