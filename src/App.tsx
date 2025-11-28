@@ -6,6 +6,7 @@ import { CartPage } from "./pages/cart-page"
 import { SignInPage } from "./pages/signin-page"
 import { SignUpPage } from "./pages/signup-page"
 import { OrderPage } from "./pages/order-page"
+import { OrderDetailPage } from "./pages/order-detail.page" 
 import { PrivateRoute } from "./cases/routes/private.route"
 
 function App() {
@@ -21,16 +22,24 @@ function App() {
             <Route path="/signin" element={<SignInPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             
-            {}
+           
             <Route path="/orders" element={
               <PrivateRoute>
                 <OrderPage />
+              </PrivateRoute>
+            } />
+
+            
+            <Route path="/orders/:id" element={
+              <PrivateRoute>
+                <OrderDetailPage />
               </PrivateRoute>
             } />
             
           </Routes>
         </div>
       </main>
+      
     </div>
   )
 }

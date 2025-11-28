@@ -12,6 +12,7 @@ export interface ProductPhotoDTO {
 }
 
 export interface ProductDTO {
+    title: string;
     id?: string;
     name: string;
     description?: string;
