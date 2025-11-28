@@ -8,13 +8,12 @@ import { SignUpPage } from "./pages/signup-page"
 import { OrderPage } from "./pages/order-page"
 import { OrderDetailPage } from "./pages/order-detail.page" 
 import { PrivateRoute } from "./cases/routes/private.route"
-
+import { WishlistPage } from "./pages/wishlist-page"
 
 import { WishlistProvider } from "./cases/wishlist/context/wishlist-context"
 
 function App() {
   return (
-    
     <WishlistProvider>
       <div className="bg-zinc-50 min-h-screen">
         <Header />
@@ -26,6 +25,9 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/signin" element={<SignInPage />} />
               <Route path="/signup" element={<SignUpPage />} />
+              
+              {}
+              <Route path="/wishlist" element={<WishlistPage />} />
               
               <Route path="/orders" element={
                 <PrivateRoute>
