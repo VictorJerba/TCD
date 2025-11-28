@@ -13,9 +13,27 @@ import { useParams } from "react-router-dom";
 
 export function ProductDetailPage() {
     const { id } = useParams<{id: string}>();
-    const {data: product, isLoading} = useProduct(id!);
+    
 
-   
+    const {data: productRaw, isLoading} = useProduct(id!);
+
+    
+    const product = productRaw ? {
+        ...productRaw,
+        brand: {
+            ...productRaw.brand, 
+            // LÓGICA: Se tiver "pao" no nome, é Padaria. Se não, é Oasis.
+            name: (productRaw.name.toLowerCase().includes('pao') || productRaw.name.toLowerCase().includes('pão'))
+                ? "Padaria Wonderwall"
+                : "Oasis"
+        }
+    } : null;
+    // ---------------------------
+
+    if (isLoading) {
+        return <div className="p-8 text-center animate-pulse">Carregando produto...</div>;
+    }
+
     if (!product) return null; 
 
   return (
@@ -28,8 +46,8 @@ export function ProductDetailPage() {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
                 {}
-                <BreadcrumbLink href={`/?categoryId=${product?.category.id}`}>
-                {product?.category.name}
+                <BreadcrumbLink href={`/?q=${product?.category?.name || ''}`}>
+                {product?.category?.name || 'Produto'}
                 </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -42,12 +60,8 @@ export function ProductDetailPage() {
         </Breadcrumb>
 
         <div className="py-8">
-            {isLoading ? (
-                <h1>Carregando</h1>
-            ) : (
-                <ProductDetail product={product!} />
-            )}
-            
+            {}
+            <ProductDetail product={product} />
         </div>
 
     </div>
