@@ -58,7 +58,7 @@ export function SignInForm() {
   <Card className="w-full max-w-md shadow-xl border border-zinc-200">
     <CardHeader className="text-center space-y-2">
       <h1 className="text-2xl font-bold text-zinc-800">Faça Login</h1>
-      <p className="text-sm text-zinc-500">Já é cliente MaterSports?</p>
+      <p className="text-sm text-zinc-500">Já é cliente Oasis Shop?</p>
     </CardHeader>
 
     <CardContent>
@@ -122,7 +122,7 @@ export function SignInForm() {
           Crie uma conta
         </h2>
         <p className="text-sm text-zinc-500 mb-4">
-          Ainda não tem uma conta MaterSports?
+          Ainda não tem uma conta Oasis Shop?
         </p>
 
         <Button

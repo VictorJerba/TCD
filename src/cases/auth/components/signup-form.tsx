@@ -55,7 +55,7 @@ export function SignUpForm() {
         <CardHeader className="text-center space-y-2">
           <h1 className="text-2xl font-bold text-zinc-800">Crie sua conta</h1>
           <p className="text-sm text-zinc-500">
-            Ainda não tem uma conta MaterSports?
+            Ainda não possui uma conta Oasis Shop?
           </p>
         </CardHeader>
 
